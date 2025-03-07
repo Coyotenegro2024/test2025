@@ -51,6 +51,16 @@ https://sam-py-edge04.tigo.com.py/out/v1/62de20495af84f908fa8963f50c44d46/index.
 #KODIPROP:inputstream.adaptive.license_key=https://dl.dropbox.com/scl/fi/kg654aptb3wmdvhw1e06i/tigo3.json?rlkey=lz1ve7n2e77c4xylazzpn4qgz&st=vef4p50k&dl=0
 https://sam-py-edge04.tigo.com.py/out/v1/c2cc7832b5b64aedacb0e459fd9d8398/index.mpd
 
+#EXTINF:-1 group-title="🏆 TIGO PY" tvg-logo="https://a-qiio.onrender.com/webp/logos/optimized/telefuturo.webp" ,TELEFUTURO 🇵🇾2025
+#EXTVLCOPT:network-caching=1000
+#EXTVLCOPT:http-user-agent="FireFox"
+#EXTVLCOPT--http-reconnect=true
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key={ "keys":[ { "keys":[ { "kty":"oct", "k":"P0EvpjaLfbSQNYjeaVN34Q", "kid":"XScxz4pZtzQ471nYjNiCvw" } ], "type":"temporary" }
+https://chromecast.cvattv.com.ar/live/c4eds/TELEFUTURO_C4/SA_Live_dash_enc_C/TELEFUTURO_C4.mpd
+
 
 
 #EXTINF:-1 group-title="2025" tvg-logo="https://i.postimg.cc/qqpQrCXQ/descarga-5.jpg", 2025
