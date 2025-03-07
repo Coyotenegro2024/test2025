@@ -19,15 +19,21 @@ https://sam-py-edge04.tigo.com.py/out/v1/25ca218d53194065bedf6d998ace462e/index.
 #KODIPROP:inputstream.adaptive.license_key=49b2c0e7037042b2aff9f064e0bb3311:83849e30adf85440550292693147fbf7
 https://sam-py-edge04.tigo.com.py/out/v1/62de20495af84f908fa8963f50c44d46/index.mpd
 
-#EXTINF:-1 group-title="🏆 TIGO PY" tvg-logo="https://i.ibb.co/qMCdxFQ/IMG-20241103-WA0162.jpg" ,TIGO SPORTSPY
-#EXTVLCOPT:network-caching=1000
-#EXTVLCOPT:http-user-agent="FireFox"
-#EXTVLCOPT--http-reconnect=true
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key={ "keys":[ { "kty":"oct", "k":"VPL9yDwdozzZJpvyHgghjA", "kid":"HGKiFqX+Qj+VnLHKAvYtgw" } ], "type":"temporary" }
+#EXTINF:-1 tvg-logo="https://i.ibb.co/qMCdxFQ/IMG-20241103-WA0162.jpg",EVENTOS1 TIGO FULL HD
+#CLEARKEY: https://dl.dropbox.com/scl/fi/bify73qa6pam1h5op5mg4/tigo3.json?rlkey=r2r6qmvzobpn1tib3n068ap1z&st=2jfgsr87&dl=0
 https://sam-py-edge04.tigo.com.py/out/v1/25ca218d53194065bedf6d998ace462e/index.mpd
+#EXTINF:-1 tvg-logo="https://i.ibb.co/qMCdxFQ/IMG-20241103-WA0162.jpg",EVENTOS 2 TIGO FULL HD
+#CLEARKEY: https://dl.dropbox.com/scl/fi/wbw3yya7vk1f3ivn650ug/tigo4.txt?rlkey=ozbktawdgz3ir2ydtm4qez3om&st=8nrn8w9m&dl=0
+https://sam-py-edge04.tigo.com.py/out/v1/62de20495af84f908fa8963f50c44d46/index.mpd
+#EXTINF:-1 tvg-logo="https://i.ibb.co/qMCdxFQ/IMG-20241103-WA0162.jpg",EVENTOS 3 PLAY TV PY HD
+#CLEARKEY: https://dl.dropbox.com/scl/fi/kg654aptb3wmdvhw1e06i/tigo3.json?rlkey=lz1ve7n2e77c4xylazzpn4qgz&st=vef4p50k&dl=0
+https://sam-py-edge04.tigo.com.py/out/v1/c2cc7832b5b64aedacb0e459fd9d8398/index.mpd
+#EXTINF:-1 tvg-logo="https://i.ibb.co/qMCdxFQ/IMG-20241103-WA0162.jpg",TIGO SOLO EVENTOS
+https://streamtp3.com/global1.php?stream=eventos9
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/gcK9ctZs/descarga-20.jpg",TIGO EN VIVO
+#CLEARKEY: https://dl.dropbox.com/scl/fi/kcqa7s4wswuvik8a6d8ja/tigo8.json?rlkey=fcmibx8c969m5kh9p2jrep3tg&st=6l89pt5k&dl=0
+https://vsd122.okcdn.ru/hls/8242064067155.m3u8/sig/WhW2vIXU0vg/expires/1741117311238/srcIp/181.94.232.2/urls/185.226.55.69/clientType/1/srcAg/UNKNOWN_ANDROID/mid/10592733634131/video.m3u8?p
+
 
 #EXTINF:-1 group-title="2025" tvg-logo="https://i.postimg.cc/qqpQrCXQ/descarga-5.jpg", 2025
 https://gucprez.online:9090/ESPNMX/tracks-v1a1/mono.m3u8
