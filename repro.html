@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Canales</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 300px;
+            background-color: #2c3e50;
+            color: white;
+            overflow-y: auto;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        .channel-group {
+            margin-bottom: 20px;
+        }
+        .group-title {
+            background-color: #34495e;
+            padding: 10px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .channel-list {
+            display: none;
+            padding: 0;
+            margin: 0;
+        }
+        .channel-list.show {
+            display: block;
+        }
+        .channel-item {
+            padding: 10px 15px;
+            border-bottom: 1px solid #3d5166;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+        .channel-item:hover {
+            background-color: #3d5166;
+        }
+        .channel-icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .player-container {
+            background-color: #000;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        #video-player {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+        }
+        .channel-info {
+            background-color: #ecf0f1;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .search-box {
+            padding: 15px;
+            background-color: #34495e;
+        }
+        #search-input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: none;
+        }
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: white;
+            font-size: 18px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Buscar canal...">
+            </div>
+            <div id="channel-list-container"></div>
+        </div>
+        <div class="main-content">
+            <div class="player-container">
+                <video id="video-player" controls></video>
+                <div id="player-loading" class="loading" style="display: none;">Cargando...</div>
+            </div>
+            <div class="channel-info">
+                <h2 id="current-channel-name">Selecciona un canal</h2>
+                <p id="current-channel-url" style="word-break: break-all; display: none;"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dashjs/dist/dash.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/shaka-player/dist/shaka-player.compiled.js"></script>
+    <script>
+        // Datos de canales (podrías cargarlos desde un archivo JSON externo)
+        const channelData = [
+            {
+                "name": "CANALES DE ARGENTINA",
+                "samples": [
+                    {
+                        "name": "Gran Hermano 1",
+                        "url": "http://megaplux.lat:80/live/MAGMA/11223344/563228.m3u8",
+                        "type": "HLS",
+                        "icono": "https://i.ibb.co/tq4M9Pk/granhermano.png"
+                    },
+                    {
+                        "name": "Gran Hermano 2",
+                        "url": "https://zona593.live:8443/live/Flamatv2.0/q4F479ZGZ5/938798.ts",
+                        "type": "HLS",
+                        "icono": "https://i.ibb.co/tq4M9Pk/granhermano.png"
+                    },
+                    {
+                        "name": "Gran Hermano 3",
+                        "url": "http://megaplux.lat:80/play/QLs106f9OazpD_Viw42mnPAbTTKusRed9gGr6LKQqWE/ts",
+                        "type": "HLS",
+                        "icono": "https://i.ibb.co/tq4M9Pk/granhermano.png"
+                    },
+                    {
+                        "name": "Gran Hermano 4",
+                        "url": "http://totalplay.site:80/live/SVCable8264819i4@/@hfPYw@YqgRHB/615508",
+                        "type": "HLS",
+                        "icono": "https://i.ibb.co/tq4M9Pk/granhermano.png"
+                    },
+                    {
+                        "name": "A24",
+                        "url": "https://chromecast.cvattv.com.ar/live/c7eds/America24/SA_Live_dash_enc_C/America24.mpd",
+                        "type": "CLEARKEY",
+                        "drm_license_uri": "https://vercel-php-clearkey-hex-base64-json.vercel.app/api/results.php?keyid=3b1b027dd011af20fd9956c16dc084fb&key=45f75aacf06593c9b693fe427c67e5b8",
+                        "icono": "https://i.ibb.co/WWfTn7M9/LnXQkIU.png",
+                        "headers": {
+                            "Origin": "https://portal.app.flow.com.ar",
+                            "Referer": "https://portal.app.flow.com.ar/",
+                            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+                        }
+                    }
+                ]
+            }
+        ];
+
+        // Elementos del DOM
+        const channelListContainer = document.getElementById('channel-list-container');
+        const videoPlayer = document.getElementById('video-player');
+        const currentChannelName = document.getElementById('current-channel-name');
+        const currentChannelUrl = document.getElementById('current-channel-url');
+        const searchInput = document.getElementById('search-input');
+        const playerLoading = document.getElementById('player-loading');
+
+        // Variables globales
+        let hls = null;
+        let player = null;
+
+        // Función para renderizar la lista de canales
+        function renderChannelList(data) {
+            channelListContainer.innerHTML = '';
+            
+            data.forEach(group => {
+                const groupElement = document.createElement('div');
+                groupElement.className = 'channel-group';
+                
+                const groupTitle = document.createElement('div');
+                groupTitle.className = 'group-title';
+                groupTitle.textContent = group.name;
+                groupTitle.innerHTML += '<span>▼</span>';
+                
+                const channelList = document.createElement('ul');
+                channelList.className = 'channel-list';
+                
+                group.samples.forEach(channel => {
+                    const channelItem = document.createElement('li');
+                    channelItem.className = 'channel-item';
+                    channelItem.dataset.channel = JSON.stringify(channel);
+                    
+                    const iconImg = document.createElement('img');
+                    iconImg.className = 'channel-icon';
+                    iconImg.src = channel.icono || 'https://via.placeholder.com/30';
+                    iconImg.alt = channel.name;
+                    iconImg.onerror = () => { iconImg.src = 'https://via.placeholder.com/30'; };
+                    
+                    const channelName = document.createTextNode(channel.name);
+                    
+                    channelItem.appendChild(iconImg);
+                    channelItem.appendChild(channelName);
+                    channelList.appendChild(channelItem);
+                });
+                
+                groupTitle.addEventListener('click', () => {
+                    channelList.classList.toggle('show');
+                    const arrow = groupTitle.querySelector('span');
+                    arrow.textContent = channelList.classList.contains('show') ? '▲' : '▼';
+                });
+                
+                groupElement.appendChild(groupTitle);
+                groupElement.appendChild(channelList);
+                channelListContainer.appendChild(groupElement);
+            });
+            
+            // Agregar event listeners a los canales
+            document.querySelectorAll('.channel-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const channelData = JSON.parse(this.dataset.channel);
+                    playChannel(channelData);
+                });
+            });
+        }
+
+        // Función para reproducir un canal
+        async function playChannel(channel) {
+            try {
+                playerLoading.style.display = 'flex';
+                videoPlayer.style.display = 'none';
+                
+                // Detener cualquier reproducción anterior
+                if (hls) {
+                    hls.destroy();
+                    hls = null;
+                }
+                
+                if (player) {
+                    player.destroy();
+                    player = null;
+                }
+                
+                // Actualizar información del canal
+                currentChannelName.textContent = channel.name;
+                currentChannelUrl.textContent = channel.url;
+                
+                // Configurar el reproductor según el tipo de stream
+                if (channel.type === 'HLS') {
+                    if (Hls.isSupported()) {
+                        hls = new Hls();
+                        hls.loadSource(channel.url);
+                        hls.attachMedia(videoPlayer);
+                        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                            videoPlayer.play().catch(e => console.error('Error al reproducir:', e));
+                        });
+                    } else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
+                        videoPlayer.src = channel.url;
+                        videoPlayer.addEventListener('loadedmetadata', () => {
+                            videoPlayer.play().catch(e => console.error('Error al reproducir:', e));
+                        });
+                    } else {
+                        throw new Error('HLS no soportado en este navegador');
+                    }
+                } 
+                else if (channel.type === 'CLEARKEY') {
+                    // Configurar DRM con ClearKey
+                    player = new shaka.Player(videoPlayer);
+                    
+                    await player.load(channel.url).then(() => {
+                        console.log('El video se ha cargado correctamente');
+                    }).catch(e => {
+                        console.error('Error al cargar el video:', e);
+                    });
+                    
+                    // Configurar DRM
+                    const configuration = {
+                        drm: {
+                            clearKeys: {
+                                [channel.drm_license_uri.split('keyid=')[1].split('&')[0]]: 
+                                channel.drm_license_uri.split('key=')[1]
+                            }
+                        }
+                    };
+                    
+                    player.configure(configuration);
+                    
+                    // Configurar headers si existen
+                    if (channel.headers) {
+                        player.getNetworkingEngine().registerRequestFilter((type, request) => {
+                            if (type === shaka.net.NetworkingEngine.RequestType.SEGMENT) {
+                                for (const [key, value] of Object.entries(channel.headers)) {
+                                    request.headers[key] = value;
+                                }
+                            }
+                        });
+                    }
+                } 
+                else {
+                    // Stream directo
+                    videoPlayer.src = channel.url;
+                    videoPlayer.play().catch(e => console.error('Error al reproducir:', e));
+                }
+                
+                // Manejar errores
+                videoPlayer.addEventListener('error', () => {
+                    console.error('Error en el elemento de video');
+                    playerLoading.textContent = 'Error al cargar el canal';
+                });
+                
+                // Mostrar el reproductor cuando esté listo
+                videoPlayer.addEventListener('canplay', () => {
+                    playerLoading.style.display = 'none';
+                    videoPlayer.style.display = 'block';
+                });
+                
+            } catch (error) {
+                console.error('Error al reproducir el canal:', error);
+                playerLoading.textContent = 'Error al cargar el canal';
+            }
+        }
+
+        // Función para buscar canales
+        function searchChannels(query) {
+            const filteredData = channelData.map(group => {
+                const filteredSamples = group.samples.filter(channel => 
+                    channel.name.toLowerCase().includes(query.toLowerCase())
+                );
+                return {...group, samples: filteredSamples};
+            }).filter(group => group.samples.length > 0);
+            
+            renderChannelList(filteredData);
+        }
+
+        // Event listeners
+        searchInput.addEventListener('input', (e) => {
+            searchChannels(e.target.value);
+        });
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            renderChannelList(channelData);
+            
+            // Inicializar Shaka Player
+            shaka.polyfill.installAll();
+        });
+    </script>
+</body>
+</html>
