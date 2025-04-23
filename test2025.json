@@ -4,6 +4,16 @@
 #KODIPROP:inputstream.adaptive.license_key=2bdfc30f2a7591e107d8c84458c395dd:dcee0d6420b6b597fba15d3c4411a71e
 https://cdn.cvattv.com.ar/live/c3eds/Eventos_PY/SA_Live_dash_enc/Eventos_PY.mpd
 
+#EXTM3U
+#EXTINF:-1 tvg-id="2025" tvg-name="EVENTOS 2 TIGO FULL HD" tvg-logo="https://i.ibb.co/qMCdxFQ/IMG-20241103-WA0162.jpg" group-title="TIGO PY"
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=CLEARKEY
+#KODIPROP:inputstream.adaptive.license_key=https://dl.dropbox.com/scl/fi/wbw3yya7vk1f3ivn650ug/tigo4.txt?rlkey=ozbktawdgz3ir2ydtm4qez3om&st=8nrn8w9m&dl=0
+#EXTVLCOPT:http-user-agent=FireFox
+#EXTVLCOPT:http-referrer=https://www.tigosports.com.py/
+#EXTVLCOPT:http-origin=https://www.tigosports.com.py
+https://sam-py-edge05.tigo.com.py/ccur-session/01_3508407031/out/v1/62de20495af84f908fa8963f50c44d46/index.mpd?|referer=https://www.tigosports.com.py/|origin=https://www.tigosports.com.py
+
 #EXTINF:-1 tvg-id="" tvg-name=""  tvg-logo="https://i.imgur.com/YhIUyt4.png" group-title="🏆 EVENTOS 🇵🇾",🏆 EVENTOS 🇵🇾 
 #KODIPROP:inputstream.adaptive.manifest_type=mpd 
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha 
