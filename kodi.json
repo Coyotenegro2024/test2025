@@ -1056,12 +1056,11 @@ https://cdn.cvattv.com.ar/live/c4eds/PARAVISION_C4/SA_Live_dash_enc_C/PARAVISION
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 https://chromecast.cvattv.com.ar/live/c4eds/SNT_C4/SA_Live_dash_enc_C/SNT_C4.mpd|Origin=https://portal.app.flow.com.ar|Referer=https://portal.app.flow.com.ar/|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
 
-#EXTINF:-1 tvg-id="TELEFUTURO%20FLOW%20HD" tvg-logo="https://i.ibb.co/Hp9jRYsP/telefuturo-new-logo-2022-by-randomuser2040-dfhp9ty-fullview.png" group-title="General",TELEFUTURO FLOW HD
+#EXTINF:-1 tvg-id="TELEFUTURO%20FLOW%20HD" tvg-logo="https://i.ibb.co/Hp9jRYsP/telefuturo-new-logo-2022-by-randomuser2040-dfhp9ty-fullview.png" group-title="Flow PY",TELEFUTURO FLOW HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://dl.dropbox.com/scl/fi/s84zrlejo4o4sizaioj6v/telefuturo.json?rlkey=p150vxxmajkmtd7pxo3ip72y0&st=ys1amw1n&dl=0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
-https://chromecast.cvattv.com.ar/live/c4eds/TELEFUTURO_C4/SA_Live_dash_enc_C/TELEFUTURO_C4.mpd|Origin=https://portal.app.flow.com.ar|Referer=https://portal.app.flow.com.ar/|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
-
+https://chromecast.cvattv.com.ar/live/c4eds/TELEFUTURO_C4/SA_Live_dash_enc_C/TELEFUTURO_C4.mpd|Origin=https://web.app.flow.com.ar|Referer=https://web.app.flow.com.ar/|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="RPC%20%F0%9F%87%B5%F0%9F%87%BE" tvg-logo="https://i.ibb.co/CKmtNhM5/Logo-de-RPC-2016.png" group-title="General",RPC 🇵🇾
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=https://dl.dropbox.com/scl/fi/wtweq3d3m1xib4lh1or3h/rpc.json?rlkey=xjk79wbidhrp8tfialjc2o5lr&st=cvlw27y2&dl=0
