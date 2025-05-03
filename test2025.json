@@ -78,6 +78,13 @@ https://39osta28l0q8tvo4.tamalpsdrtd.lat:443/v4/variant/VE1gTdz0mLzRnLv52bt9SMhF
 #KODIPROP:inputstream.adaptive.license_key=https://dl.dropbox.com/scl/fi/kcqa7s4wswuvik8a6d8ja/tigo8.json?rlkey=fcmibx8c969m5kh9p2jrep3tg&st=6l89pt5k&dl=0
 https://vsd81.okcdn.ru:443/hls/8242064067155.m3u8/sig/f_ihGx_7v94/expires/1742232326492/srcIp/181.94.232.2/urls/185.226.55.69/clientType/1/srcAg/UNKNOWN_ANDROID/mid/10592733634131/8242064067155_high/index.m3u8
 
+#EXTINF:-1 tvg-logo="https://i.ibb.co/qMCdxFQ/IMG-20241103-WA0162.jpg" group-title="TIGO SPORTS",EVENTOS 2 TIGO FULL HD
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=https://dl.dropbox.com/scl/fi/kg654aptb3wmdvhw1e06i/tigo3.json?rlkey=lz1ve7n2e77c4xylazzpn4qgz&st=vef4p50k&dl=0
+#EXTVLCOPT:http-referer=https://www.tigosports.com.py/
+#EXTVLCOPT:http-origin=https://www.tigosports.com.py
+#EXTVLCOPT:http-user-agent=FireFox
+https://sam-py-edge05.tigo.com.py/ccur-session/f9de91d275e9428d9b2020eaf9c3772017462185850761b65a320aeed11ebae01d90082191a3coPufp9yYB3qqtMFbxeMGTmPz/out/v1/c2cc7832b5b64aedacb0e459fd9d8398/index.mpd
 
 
 -------------------------------------------------------------------------------------------------------------
