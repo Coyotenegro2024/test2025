@@ -52,6 +52,31 @@ https://sam-py-edge04.tigo.com.py/ccur-session/01_3508486661/out/v1/25ca218d5319
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=2245f48a5998442f835099d30f2e0305:f48f6ce816fe86d8c10587e9a7e927a3
 https://sam-py-edge04.tigo.com.py/ccur-session/01_3508408953/out/v1/c2cc7832b5b64aedacb0e459fd9d8398/index.mpd
+#EXTM3U
+#EXTINF:-1 tvg-logo="https://i.ibb.co/qMCdxFQ/IMG-20241103-WA0162.jpg",EVENTOS1 TIGO FULL HD
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://dl.dropbox.com/scl/fi/bify73qa6pam1h5op5mg4/tigo3.json?rlkey=r2r6qmvzobpn1tib3n068ap1z&st=2jfgsr87&dl=0
+https://sam-py-edge05.tigo.com.py/ccur-session/f9de91d275e9428d9b2020eaf9c3772017462185850761b65a320aeed11ebae01d90082191a3coPufp9yYB3qqtMFbxeMGTmPz/out/v1/25ca218d53194065bedf6d998ace462e/index.mpd
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/qMCdxFQ/IMG-20241103-WA0162.jpg",EVENTOS 2 TIGO FULL HD
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://dl.dropbox.com/scl/fi/wbw3yya7vk1f3ivn650ug/tigo4.txt?rlkey=ozbktawdgz3ir2ydtm4qez3om&st=8nrn8w9m&dl=0
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_headers=Origin=https://www.tigosports.com.py|Referer=https://www.tigosports.com.py/|User-Agent=FireFox
+https://sam-py-edge05.tigo.com.py/ccur-session/f9de91d275e9428d9b2020eaf9c3772017462185850761b65a320aeed11ebae01d90082191a3coPufp9yYB3qqtMFbxeMGTmPz/out/v1/62de20495af84f908fa8963f50c44d46/index.mpd
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/qMCdxFQ/IMG-20241103-WA0162.jpg",EVENTOS 3 PLAY TV PY HD
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://dl.dropbox.com/scl/fi/kg654aptb3wmdvhw1e06i/tigo3.json?rlkey=lz1ve7n2e77c4xylazzpn4qgz&st=vef4p50k&dl=0
+https://sam-py-edge05.tigo.com.py/ccur-session/f9de91d275e9428d9b2020eaf9c3772017462185850761b65a320aeed11ebae01d90082191a3coPufp9yYB3qqtMFbxeMGTmPz/out/v1/c2cc7832b5b64aedacb0e459fd9d8398/index.mpd
+
+#EXTINF:-1 tvg-logo="https://i.ibb.co/qMCdxFQ/IMG-20241103-WA0162.jpg",TIGO SOLO EVENTOS
+https://39osta28l0q8tvo4.tamalpsdrtd.lat:443/v4/variant/VE1gTdz0mLzRnLv52bt9SMhFjdtM3ajFmc09yYzUGO1I2Y3kDNxETL4gzMh1yMxcDNtcTMwQTLiJWYjNTM1QzL.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/gcK9ctZs/descarga-20.jpg",TIGO EN VIVO
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://dl.dropbox.com/scl/fi/kcqa7s4wswuvik8a6d8ja/tigo8.json?rlkey=fcmibx8c969m5kh9p2jrep3tg&st=6l89pt5k&dl=0
+https://vsd81.okcdn.ru:443/hls/8242064067155.m3u8/sig/f_ihGx_7v94/expires/1742232326492/srcIp/181.94.232.2/urls/185.226.55.69/clientType/1/srcAg/UNKNOWN_ANDROID/mid/10592733634131/8242064067155_high/index.m3u8
 
 
 
