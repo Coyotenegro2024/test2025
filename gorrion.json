@@ -1,4 +1,5 @@
 #EXTM3U
+//https://raw.githubusercontent.com/Coyotenegro2024/test2025/refs/heads/main/gorrion.json
 
 #EXTINF:-1 tvg-logo="http://127.0.0.1/" group-title="NACIONALES", ABC TV
 https://pylocaltstvhls.lcdn.clarotv.com.py/Content/HLS_HLS_FK/Live/channel(ABC)/index.m3u8
